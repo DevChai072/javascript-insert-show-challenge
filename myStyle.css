@@ -1,0 +1,102 @@
+body {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+div.container {
+    padding: 50px;
+    margin-left: 100px;
+    margin-right: 100px;
+    /* background-color: wheat; */
+}
+
+div.labelInlineBlock {
+    display: inline-block;
+    /* border: 1px solid; */
+    width: 120px;
+    vertical-align: top;
+    margin-bottom: 20px;
+}
+
+div.inputInlineBlock {
+    display: inline-block;
+    width: 800px;
+    margin-bottom: 20px;
+}
+
+input.txtWidth {
+    height: 15px;
+}
+input.txtWidth, textarea.txtWidth {
+    width: 300px;
+    font-size: 1rem; /* root element = 16px {in tag body} */
+    padding: 10px;
+}
+
+span#spnAlertTxtAddress {
+    vertical-align: top;
+}
+
+button#btnSubmit, button#btnEdit {
+    border: 1px;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    padding-right: 50px;
+    color: white;
+}
+
+button#btnSubmit {
+    background-color: blue;
+}
+
+button#btnEdit {
+    display: none;
+    background-color: rgb(233, 171, 0);
+}
+
+div.table {
+    display: block;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+} 
+
+table#tableBasic {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 0px;
+    width: 100%;
+}
+
+table#tableBasic tr, th, td {
+    border: 1px solid black;
+}
+
+table#tableBasic th {
+    background-color: chartreuse;
+    color: white;
+    text-align: left;
+}
+
+table#tableBasic th, td {
+    padding: 10px;
+}
+
+table#tableBasic tr:nth-child(2n+0) {
+    background-color: #e4d8f1;
+}
+
+table#tableBasic a.btnEditOnTbl, a.btnSaveOnTbl, a.btnCancelOnTbl, a:-webkit-any-link {
+    color: blue;
+    text-decoration: none;
+}
+
+table#tableBasic a.btnSaveOnTbl, a.btnCancelOnTbl {
+    margin-right: 20px;
+}
+
+input.txtWidthTable, textarea.txtWidthTable {
+    width: 100%;
+}

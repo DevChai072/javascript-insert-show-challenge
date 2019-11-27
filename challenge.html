@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Challenge</title>
+    <!-- Css style -->
+    <link rel="stylesheet" href="./myStyle.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <div class="labelInlineBlock">
+                <label for="txtFullname">ชื่อ-นามสกุล</label>
+            </div>
+            <div class="inputInlineBlock">
+                <input type="text" id="txtFullname" class="txtWidth" placeholder=" กรอกชื่อ นามสกุล">
+                <span id="spnAlertTxtFullname"></span>
+            </div>
+        </div>
+        <div>
+            <div class="labelInlineBlock">
+                <label for="txtFullname">ที่อยู่</label>
+            </div>
+            <div class="inputInlineBlock">
+                <textarea id="txtAddress" class="txtWidth" rows="5" placeholder=" บ้านเลขที่&#10; ถนน&#10; ตำบล&#10; อำเภอ จังหวัด"></textarea>
+                <span id="spnAlertTxtAddress"></span>
+            </div>
+        </div>
+        <div>
+            <div class="labelInlineBlock"></div>
+            <div class="inputInlineBlock">
+                <button id="btnSubmit">บันทึก</button>
+                <button id="btnEdit">Edit</button>
+            </div>
+        </div>
+        <div class="table">
+            <table id="tableBasic">
+                <tr>
+                    <th width="10%">ลำดับ</th>
+                    <th width="30%">ชื่อ-นามสกุล</th>
+                    <th width="40%">ที่อยู่</th>
+                    <th width="20%"></th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <!-- ./container -->
+
+    <script src="./myFunctionChallenge.js"></script>
+    <script src="./myValidateChallenge.js"></script>
+    <script>
+        // set defualt isValide
+        var isValid = false;
+        
+        // add event button click
+        document.getElementById("btnSubmit").addEventListener("click", function() {
+            var objItemInput = prepareDataInput();
+            // into validate
+            validateForm(objItemInput);
+            if (isValid) {
+                saveToDbMaster(objItemInput);
+            }
+        });
+
+        /**
+         * function for save data to dbMaster
+         * dev Somchai
+         * @param {*} findIndex 
+         * @param {*} rowCount 
+         */
+        function btnSave(findIndex, rowCount) {
+            var objItemInput = prepareDataInputOnTbl(rowCount);
+            validateFormInTable(objItemInput);
+            if (isValid) {
+                editToDbMaster(findIndex, rowCount, objItemInput);
+            }
+        }
+
+        /**
+         * function for cancel data to dbMaster
+         * dev Somchai
+         * @param {*} findIndex 
+         * @param {*} rowCount 
+         */
+        function btnCancel(getId, getFullname, getAddress) {
+            // get table
+            var table = getTableName("tableBasic");
+            // remove text in cell
+            for (var i = 1; i < 3; i++) {
+                table.rows[getId].cells[i].innerHTML = "";
+            }
+
+            // put data original
+            table.rows[getId].cells[1].innerHTML = getFullname;
+            table.rows[getId].cells[2].innerHTML = getAddress;
+
+            // remove button save and cancel
+            var btnSave = document.getElementById("btnSave" + getId);
+            var btnCancel = document.getElementById("btnCancel" + getId);
+            btnSave.parentNode.removeChild(btnSave);
+            btnCancel.parentNode.removeChild(btnCancel);
+
+            document.getElementById("btnEdit" + getId).style.display = "block";
+        }
+    </script>
+</body>
+</html>
