@@ -48,7 +48,7 @@ button#btnSubmit, button#btnEdit {
 }
 
 button#btnSubmit {
-    background-color: blue;
+    background-color: #0090FD;
 }
 
 button#btnEdit {
@@ -68,6 +68,7 @@ table#tableBasic {
     border-collapse: separate;
     border-spacing: 0px;
     width: 100%;
+    font-weight: bold;
 }
 
 table#tableBasic tr, th, td {
@@ -75,7 +76,7 @@ table#tableBasic tr, th, td {
 }
 
 table#tableBasic th {
-    background-color: chartreuse;
+    background-color: #ADC344;
     color: white;
     text-align: left;
 }
@@ -84,8 +85,12 @@ table#tableBasic th, td {
     padding: 10px;
 }
 
-table#tableBasic tr:nth-child(2n+0) {
-    background-color: #e4d8f1;
+table#tableBasic tr:nth-child(even) {
+    background-color: 	#E4D1F0;
+}
+
+table#tableBasic tr:nth-child(odd) {
+    background-color: 	#E6F1D3;
 }
 
 table#tableBasic a.btnEditOnTbl, a.btnSaveOnTbl, a.btnCancelOnTbl, a:-webkit-any-link {
