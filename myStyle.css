@@ -27,6 +27,7 @@ div.inputInlineBlock {
 input.txtWidth {
     height: 15px;
 }
+
 input.txtWidth, textarea.txtWidth {
     width: 300px;
     font-size: 1rem; /* root element = 16px {in tag body} */
@@ -83,6 +84,10 @@ table#tableBasic th {
 
 table#tableBasic th, td {
     padding: 10px;
+}
+
+table#tableBasic td {
+    word-break: break-all;
 }
 
 table#tableBasic tr:nth-child(even) {

@@ -1,3 +1,4 @@
+
 // create array db master
 var dbMaster = [];
 
@@ -8,22 +9,26 @@ var dbMaster = [];
 function prepareDataInput() {
     // get data input
     var objItemInput = {};
+
     // put data to object
     objItemInput = {
         'inputFullname': document.getElementById("txtFullname"),
         'inputAddress': document.getElementById("txtAddress")
     }
+
     return objItemInput;
 }
 
 function prepareDataInputOnTbl(dataId) {
     // get data input
     var objItemInput = {};
+
     // put data to object
     objItemInput = {
         'inputFullname': document.getElementById("txtFullnameTbl" + dataId),
         'inputAddress': document.getElementById("txtAddressTbl" + dataId)
     }
+
     return objItemInput;
 }
 
@@ -36,12 +41,15 @@ function prepareDataInputOnTbl(dataId) {
 function saveToDbMaster(objItemInput) {
     var sumDbMaster = dbMaster.length; // count data in array
     sumDbMaster++; // add value for put in id
+
     // add value to dbMaster
     dbMaster.push(
         { id: sumDbMaster, fullname: objItemInput.inputFullname.value, address: objItemInput.inputAddress.value }
     );
+
     var dataId = sumDbMaster; // for use in row table
     var findIndex = sumDbMaster - 1; // for use find in array dbMaster
+
     addDataOnTableBasic(dataId, findIndex) // for find index in dbMaster
 
     // reset form input
@@ -57,8 +65,10 @@ function saveToDbMaster(objItemInput) {
 function addDataOnTableBasic(dataId, findIndex) {
     // create row on table
     var table = getTableName("tableBasic");
+
     // insert new tr
     var row = table.insertRow(dataId); 
+
     // insert to cell
     let cellId = row.insertCell(0);
     let cellFullname = row.insertCell(1);
@@ -129,6 +139,7 @@ function editInForm(findIndex, dataId) {
     btnSaveOnTbl.className = "btnSaveOnTbl";
     btnSaveOnTbl.setAttribute("onclick", "btnSave('"+ findIndex +"', '"+ dataId +"')");
     btnSaveOnTbl.innerHTML = "Save";
+
     // create button for cancel
     var btnCancelOnTbl = document.createElement("a");
     btnCancelOnTbl.href = "#";
@@ -154,6 +165,8 @@ function editInForm(findIndex, dataId) {
 
 /**
  * function for update data to dbMaster
+ * dev Somchai O00085
+ * @param {*} findIndex 
  * @param {*} dataId 
  * @param {*} objItemInput 
  */
