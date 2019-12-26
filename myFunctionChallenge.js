@@ -35,7 +35,7 @@ function prepareDataInputOnTbl(dataId) {
 /**
  * function save to array dbMaster
  * dev Somchai O00085
- * @param {*} objItemInput 
+ * @param {*} objItemInput
  * @requires {2} inputFullname, inputAddress
  */
 function saveToDbMaster(objItemInput) {
@@ -67,7 +67,7 @@ function addDataOnTableBasic(dataId, findIndex) {
     var table = getTableName("tableBasic");
 
     // insert new tr
-    var row = table.insertRow(dataId); 
+    var row = table.insertRow(dataId);
 
     // insert to cell
     let cellId = row.insertCell(0);
@@ -92,14 +92,14 @@ function addDataOnTableBasic(dataId, findIndex) {
 /**
  * function get table name
  * dev Somchai O00085
- * @param {*} tbName 
+ * @param {*} tbName
  */
 function getTableName(tbName) {
     return document.getElementById(tbName);
 }
 
 /**
- * function reset form 
+ * function reset form
  * dev Somchai O00085
  */
 function resetForm() {
@@ -113,7 +113,7 @@ function resetForm() {
  * @param {*} dataId
  * @requires {3} dbMaster => id, dbMaster => fullname, dbMaster => address
  */
-function editInForm(findIndex, dataId) { 
+function editInForm(findIndex, dataId) {
     // hide button submit form
     document.getElementById("btnEdit" + dataId).style.display = "none";
 
@@ -166,9 +166,9 @@ function editInForm(findIndex, dataId) {
 /**
  * function for update data to dbMaster
  * dev Somchai O00085
- * @param {*} findIndex 
- * @param {*} dataId 
- * @param {*} objItemInput 
+ * @param {*} findIndex
+ * @param {*} dataId
+ * @param {*} objItemInput
  */
 function editToDbMaster(findIndex, dataId, objItemInput) {
     // find data in dbMaster and update data
@@ -178,7 +178,7 @@ function editToDbMaster(findIndex, dataId, objItemInput) {
     // get table
     var table = getTableName("tableBasic");
 
-    // put data 
+    // put data
     var rowId = dbMaster[findIndex].id;
     var dataFullname = dbMaster[findIndex].fullname;
     var dataAddress = dbMaster[findIndex].address;
@@ -202,7 +202,6 @@ function editToDbMaster(findIndex, dataId, objItemInput) {
  * @param {*} tagName
  */
 function defaultTagSpan(tagName) {
-    console.log("spnAlert" + tagName)
     document.getElementById("spnAlert" + tagName).innerHTML = "";
     document.getElementById("spnAlert" + tagName).style.color = "";
 }
